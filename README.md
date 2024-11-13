@@ -13,10 +13,18 @@ It uses [buffer graphics lib](https://github.com/emmabritton/buffer-graphics-lib
 In your `Cargo.toml` file add
 
 ```toml
-pixels-graphics-lib = { version = "0.20.2", features = [] }
+pixels-graphics-lib = "0.21.0"
 ```
 
-Inside `features` you **MUST** put one of these:
+To use [Softbuffer](https://github.com/rust-windowing/softbuffer) instead
+of [Pixels](https://github.com/parasyte/pixels) as the renderer, add this line instead
+
+```toml
+pixels-graphics-lib = { version = "0.21.0", default-features = false, features = ["softbuffer"] }
+# You'll probably also want to add at least "scenes" to the feature list
+```
+
+### Renderers
 
 | Feature      | Renderer                                                   | Window creation                                        |
 |--------------|------------------------------------------------------------|--------------------------------------------------------|
@@ -26,10 +34,12 @@ Inside `features` you **MUST** put one of these:
 Both of these use `rwh06`
 
 This will control how the window is created and managed and how the buffer is rendered to the screen. The main
-differences are when the window is scaled to a non integer value (1.2 opposed than 2.0) then `pixels` will draw your
+differences are when the window is scaled to a non integer value (1.2 as opposed to 2.0) then `pixels` will draw your
 content in the middle of the window, whereas `softbuffer` will draw in the top left. Additionally, `pixels` uses
 hardware
 scaling and `softbuffer` uses software scaling.
+
+They have the same API in this crate and can be swapped with no code changes.
 
 ### Code
 
@@ -119,7 +129,7 @@ impl System for Example {
 
 ## Features
 
-> Default features: `window_prefs`, `sound`, `serde`, `scenes`
+> Default features: `window_prefs`, `sound`, `serde`, `scenes`, `pixels`
 
 ### `window_prefs`
 

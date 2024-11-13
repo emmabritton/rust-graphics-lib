@@ -1,5 +1,12 @@
 # Changelog
 
+### Verion 0.21.0
+
+### Breaking
+
+- `pixels` is now a default feature
+- `softbuffer` is still optional, but to use it you'll need to disable default feature
+
 ### Verion 0.20.2
 
 - Update deps (fix tilemap bug)
