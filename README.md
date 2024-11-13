@@ -16,7 +16,8 @@ In your `Cargo.toml` file add
 pixels-graphics-lib = "0.21.0"
 ```
 
-To use softbuffer instead of pixels, add this line instead
+To use [Softbuffer](https://github.com/rust-windowing/softbuffer) instead
+of [Pixels](https://github.com/parasyte/pixels) as the renderer, add this line instead
 
 ```toml
 pixels-graphics-lib = { version = "0.21.0", default-features = false, features = ["softbuffer"] }
